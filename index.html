@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/assets.css">
+    <link rel="stylesheet" href="./styles/note.css">
+    <link rel="stylesheet" href="./styles/standart.css">
     <script src="./script.js"></script>
-    <title>Notes</title>
+    <title>Notepad</title>
 </head>
+
 <body onload="init()">
-    <h1>My Notes</h1>
 
-    <input type="text" id="titelNotes" placeholder="Titel">
-    <input type="text" id="inputNotes" placeholder="The note">
+    <main class="main">
+        <h1 class="headlining">Notepad</h1>
 
-    <button id="saveNotes" onclick="saveNotes()">Speichern</button>
+        <section class="main_input_ref">
+            <input type="text" id="titelNotes" placeholder="Titel" class="input_titel">
+            <input type="text" id="inputNotes" placeholder="Text" class="input_text">
+            <button id="saveNotes" onclick="saveNotes()" class="save_btn">Save</button>
+        </section>
 
-     <div id="content"></div>
+        <div id="content" class="main_content"></div>
 
-     <h2>Trash Notes</h2>
+        <h2 class="subheadlining">Trash notes</h2>
 
-     <div id="trashContent"></div>
-    
+        <section id="trashContent" class="trash_content"></section>
+
+    </main>
+
+
 </body>
-</html>
 
+</html>

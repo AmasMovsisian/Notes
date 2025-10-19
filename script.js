@@ -63,7 +63,7 @@ function renderTrashNotes() {
 
 function getHTMLNotes(indexNotes) {
   return `
-    <h4>${notesTitels[indexNotes]}</h4> <br>
+    <span class="titel_notes">${notesTitels[indexNotes]}</span> <br>
     <p>${notes[indexNotes]} 
       <button onclick="deleteNotes(${indexNotes})">X</button> 
     </p>
@@ -72,7 +72,7 @@ function getHTMLNotes(indexNotes) {
 
 function getHTMLTrashNotes(indexTrashNotes) {
   return `
-    <h4>${trashNotesTitels[indexTrashNotes]}</h4> <br>
+    <span class="titel_trash_notes">${trashNotesTitels[indexTrashNotes]}</span> <br>
     <p>${trashNotes[indexTrashNotes]} 
       <button onclick="deleteNotesFromTrash(${indexTrashNotes})">X</button> 
     </p>
@@ -83,16 +83,22 @@ function saveNotes() {
   let inputNotesRef = document.getElementById("inputNotes");
   let titelNotesRef = document.getElementById("titelNotes");
 
+  if(inputNotesRef.value !== "" && titelNotesRef.value !== "") {
+    
+  
   notes.push(inputNotesRef.value);
   notesTitels.push(titelNotesRef.value);
-
   renderNotes();
 
   inputNotesRef.value = "";
   titelNotesRef.value = "";
-
   saveNotesToLocalStorage();
+  } else {
+    alert("Bitte beide Felder ausfüllen!")
+  }
+
 }
+
 
 function deleteNotes(indexNotes) {
   let deletednotes = notes.splice(indexNotes, 1);

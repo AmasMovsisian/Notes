@@ -1,0 +1,10 @@
+.save_btn{
+ width: 10%;
+ height: 10%;
+ border-radius: 10px;
+ border: none;
+ background-color:white;
+ margin-left: 64px;
+ margin-top: 16px;
+ margin-bottom: 32px;
+}
