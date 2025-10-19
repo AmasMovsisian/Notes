@@ -1,36 +1,40 @@
+function init() {
+  loadFromLocalStorage();
+  renderNotes();
+  renderTrashNotes();
+}
+
 let notes = [];
 let trashNotes = [];
 
 let notesTitels = [];
 let trashNotesTitels = [];
 
+function loadFromLocalStorage() {
+  const storedNotes = localStorage.getItem("notes");
+  const storedNotesTitels = localStorage.getItem("notesTitels");
+  const storedTrashNotes = localStorage.getItem("trashNotes");
+  const storedTrashNotesTitels = localStorage.getItem("trashNotesTitels");
+
+  if (storedNotes && storedNotesTitels) {
+    notes = JSON.parse(storedNotes);
+    notesTitels = JSON.parse(storedNotesTitels);
+  }
+
+  if (storedTrashNotes && storedTrashNotesTitels) {
+    trashNotes = JSON.parse(storedTrashNotes);
+    trashNotesTitels = JSON.parse(storedTrashNotesTitels);
+  }
+
+  renderNotes();
+  renderTrashNotes();
+}
+
 function saveNotesToLocalStorage() {
   localStorage.setItem("notes", JSON.stringify(notes));
   localStorage.setItem("notesTitels", JSON.stringify(notesTitels));
   localStorage.setItem("trashNotes", JSON.stringify(trashNotes));
   localStorage.setItem("trashNotesTitels", JSON.stringify(trashNotesTitels));
-}
-
-function loadFromLocalStorage() {
-
-    const storedNotes = localStorage.getItem("notes");
-    const storedNotesTitels = localStorage.getItem("notesTitels");
-    const storedTrashNotes = localStorage.getItem("trashNotes");
-    const storedTrashNotesTitels = localStorage.getItem("trashNotesTitels");
-
-    if(storedNotes && storedNotesTitels) {
-         notes = JSON.parse(storedNotes);
-         notesTitels = JSON.parse(storedNotesTitels);
-    }
-
-    if(storedTrashNotes && storedTrashNotesTitels) {
-        trashNotes = JSON.parse(storedTrashNotes);
-        trashNotesTitels = JSON.parse(storedTrashNotesTitels);
-    }
-
-    renderNotes();
-    renderTrashNotes();
-
 }
 
 function renderNotes() {
@@ -48,7 +52,11 @@ function renderTrashNotes() {
   let trashContentRef = document.getElementById("trashContent");
   trashContentRef.innerHTML = "";
 
-  for (let indexTrashNotes = 0; indexTrashNotes < trashNotes.length; indexTrashNotes++) {
+  for (
+    let indexTrashNotes = 0;
+    indexTrashNotes < trashNotes.length;
+    indexTrashNotes++
+  ) {
     trashContentRef.innerHTML += getHTMLTrashNotes(indexTrashNotes);
   }
 }
@@ -72,19 +80,19 @@ function getHTMLTrashNotes(indexTrashNotes) {
 }
 
 function saveNotes() {
-
   let inputNotesRef = document.getElementById("inputNotes");
   let titelNotesRef = document.getElementById("titelNotes");
 
-  notes.push(inputNotesRef.value);      
-  notesTitels.push(titelNotesRef.value); 
+  notes.push(inputNotesRef.value);
+  notesTitels.push(titelNotesRef.value);
 
   renderNotes();
 
   inputNotesRef.value = "";
   titelNotesRef.value = "";
-}
 
+  saveNotesToLocalStorage();
+}
 
 function deleteNotes(indexNotes) {
   let deletednotes = notes.splice(indexNotes, 1);
@@ -95,12 +103,14 @@ function deleteNotes(indexNotes) {
 
   renderNotes();
   renderTrashNotes();
-}
 
+  saveNotesToLocalStorage();
+}
 
 function deleteNotesFromTrash(indexTrashNotes) {
   trashNotes.splice(indexTrashNotes, 1);
   trashNotesTitels.splice(indexTrashNotes, 1);
 
   renderTrashNotes();
+  saveNotesToLocalStorage();
 }
