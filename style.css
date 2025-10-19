@@ -4,6 +4,14 @@
     padding-top: 16px;
     padding-bottom: 16px;
     padding-left: 64px;
+    font-size: 42px;
+}
+
+.subheadlining{
+   padding-top: 64px;
+   padding-bottom: 16px;
+   padding-left: 64px;
+   font-size: 32px; 
 }
 
 .main_input_ref{
@@ -12,7 +20,8 @@
     justify-content: flex-start;
     align-items: flex-start;
     height: 50vh;
-    background-color: aqua;
+    background-color: rgba(216, 223, 231, 0.614);
+    border-radius: 10px;
 
 }
 
@@ -21,11 +30,18 @@
  width: 90%;
  height: 10%;
  border-radius: 10px;
- border-width: 4px;
+ border-width: 2px;
  border-style: solid;
  border-color: rgb(204, 204, 204);
  margin-top: 32px;
  margin-bottom: 32px;
+ font-size: 18px;
+}
+
+.input_titel::placeholder{
+    text-align: start;
+    font-weight: 700;
+    padding-left: 32px;
 }
 
 .input_text{
@@ -33,9 +49,16 @@
  width: 90%;
  height: 70%;
  border-radius: 10px;
- border-width: 4px;
+ border-width: 2px;
  border-style: solid;
  border-color: rgb(204, 204, 204);
- margin-top: 32px;
+font-size: 18px;
 }
 
+.input_text::placeholder {
+  text-align: start;
+  font-weight: 700;
+  padding-left: 32px;
+  position: absolute;
+  top: 10%;
+}

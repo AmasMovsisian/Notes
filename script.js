@@ -62,19 +62,18 @@ function renderTrashNotes() {
 }
 
 function getHTMLNotes(indexNotes) {
-  return `
-    <span class="titel_notes">${notesTitels[indexNotes]}</span> <br>
-    <p>${notes[indexNotes]} 
-      <button onclick="deleteNotes(${indexNotes})">X</button> 
-    </p>
+  return `<div class="titel_btn_notes">
+    <p class="titel_notes">${notesTitels[indexNotes]}</p> <button class="del_btn" onclick="deleteNotes(${indexNotes})">X</button> 
+     </div>
+    <p>${notes[indexNotes]} </p>
   `;
 }
 
 function getHTMLTrashNotes(indexTrashNotes) {
-  return `
-    <span class="titel_trash_notes">${trashNotesTitels[indexTrashNotes]}</span> <br>
-    <p>${trashNotes[indexTrashNotes]} 
-      <button onclick="deleteNotesFromTrash(${indexTrashNotes})">X</button> 
+  return ` <div class="titel_btn_trash_notes">
+    <p class="titel_trash_notes">${trashNotesTitels[indexTrashNotes]}</p>  <button class="del_btn" onclick="deleteNotesFromTrash(${indexTrashNotes})">X</button>
+    </div>
+    <p>${trashNotes[indexTrashNotes]}  
     </p>
   `;
 }
