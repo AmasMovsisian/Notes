@@ -10,6 +10,8 @@ let trashNotes = [];
 let notesTitels = [];
 let trashNotesTitels = [];
 
+
+
 function loadFromLocalStorage() {
   const storedNotes = localStorage.getItem("notes");
   const storedNotesTitels = localStorage.getItem("notesTitels");
@@ -78,6 +80,23 @@ function getHTMLTrashNotes(indexTrashNotes) {
   `;
 }
 
+    function showAlert(message = "Please fill out both fields") {
+      const overlay = document.createElement("div");
+      overlay.className = "custom-alert-overlay";
+
+      const box = document.createElement("div");
+      box.className = "custom-alert-box";
+
+      box.innerHTML = `
+        <h3>${message}</h3>
+        <button onclick="this.closest('.custom-alert-overlay').remove()">OK</button>
+      `;
+
+      overlay.appendChild(box);
+      document.body.appendChild(overlay);
+    }
+
+
 function saveNotes() {
   let inputNotesRef = document.getElementById("inputNotes");
   let titelNotesRef = document.getElementById("titelNotes");
@@ -93,7 +112,7 @@ function saveNotes() {
   titelNotesRef.value = "";
   saveNotesToLocalStorage();
   } else {
-    alert("Bitte beide Felder ausfüllen!")
+    showAlert();
   }
 
 }
@@ -110,6 +129,16 @@ function deleteNotes(indexNotes) {
   renderTrashNotes();
 
   saveNotesToLocalStorage();
+}
+
+function openDialog(){
+  const dialogRef = document.getElementById("trashDialog");
+  dialogRef.showModal();
+}
+
+function closeDialog(){
+  const dialogRef = document.getElementById("trashDialog");
+  dialogRef.close();
 }
 
 function deleteNotesFromTrash(indexTrashNotes) {

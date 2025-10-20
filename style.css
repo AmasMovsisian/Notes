@@ -5,6 +5,7 @@
     padding-bottom: 16px;
     padding-left: 64px;
     font-size: 42px;
+    color: #3a4d7f;
 }
 
 .subheadlining{
@@ -12,6 +13,7 @@
    padding-bottom: 16px;
    padding-left: 64px;
    font-size: 32px; 
+   color: #3a4d7f;
 }
 
 .main_input_ref{
@@ -21,44 +23,92 @@
     align-items: flex-start;
     height: 50vh;
     background-color: rgba(216, 223, 231, 0.614);
-    border-radius: 10px;
-
+    box-shadow: 0px 0px 4px 1px #3a4d7f;
 }
 
 .input_titel{
+ padding-left: 16px;
  margin-left: 64px;
+ margin-right: 64px;
  width: 90%;
  height: 10%;
  border-radius: 10px;
- border-width: 2px;
- border-style: solid;
- border-color: rgb(204, 204, 204);
+ border: none;
+ outline: none;
  margin-top: 32px;
  margin-bottom: 32px;
  font-size: 18px;
+ transition: all 0.25s ease-in-out;
+}
+
+.input_titel:hover{
+    box-shadow: 0px 1px 7px black;
 }
 
 .input_titel::placeholder{
     text-align: start;
     font-weight: 700;
-    padding-left: 32px;
+    color: #777777;
+}
+
+.input_titel:focus{
+    border:none;
+    outline: none;
+    background-color:rgb(255, 255, 255);
 }
 
 .input_text{
+padding-top: 18px;
+ padding-left: 16px;
  margin-left: 64px;
+ margin-right: 64px;
  width: 90%;
- height: 70%;
+ height: 40%;
  border-radius: 10px;
- border-width: 2px;
- border-style: solid;
- border-color: rgb(204, 204, 204);
-font-size: 18px;
+ border: none;
+ outline: none;
+ font-size: 18px;
+ transition: all 0.25s ease-in-out;
+}
+
+.input_text:hover{
+    box-shadow: 0px 1px 7px black;
 }
 
 .input_text::placeholder {
   text-align: start;
   font-weight: 700;
-  padding-left: 32px;
   position: absolute;
   top: 10%;
+  border: none;
+}
+
+.input_text:focus{
+    border:none;
+    outline: none;
+    background-color:rgb(255, 255, 255);
+}
+
+.flex_dialog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trash_dialog_content{
+    top: 32px;
+    bottom: 32px;
+    left: 16px;
+    right: 16px;
+    width: 100%;
+    height: 100vh;
+    border: none;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+}
+
+.dialogProperties{
+display: flex;
+justify-content: flex-end;
+
 }

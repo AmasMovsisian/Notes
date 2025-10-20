@@ -15,20 +15,27 @@
 <body onload="init()">
 
     <main class="main">
-        <h1 class="headlining">Notepad</h1>
+        <a href="./index.html"><h1 class="headlining">Notepad</h1></a>
 
         <section class="main_input_ref">
             <input type="text" id="titelNotes" placeholder="Titel" class="input_titel">
-            <input type="text" id="inputNotes" placeholder="Text" class="input_text">
+            <textarea type="text" id="inputNotes" placeholder="Text" class="input_text"></textarea>
             <button id="saveNotes" onclick="saveNotes()" class="save_btn">Save</button>
         </section>
 
         <div id="content" class="main_content"></div>
 
-        <h2 class="subheadlining">Trash notes</h2>
+        <button onclick="openDialog()" class="trash_BTN">Show trash notes</button>
 
-        <section id="trashContent" class="trash_content"></section>
+        <dialog id="trashDialog" class="trash_dialog_content">
 
+            <div class="dialogProperties">
+            <button id="closeDialogTrash" class="close_dialog_trash" onclick="closeDialog()">Close trash notes</button>
+            </div>
+            
+            <section id="trashContent" class="trash_content"></section>
+            
+        </dialog>
     </main>
 
 
