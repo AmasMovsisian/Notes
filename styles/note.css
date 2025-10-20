@@ -1,9 +1,10 @@
 .main_content{
     background-color: rgba(196, 211, 228, 0.986);
     margin-top: 24px;
+    margin-bottom: 24px;
     padding-left: 64px;
     padding-right: 64px;
-    border-radius: 10px;
+    box-shadow: 0px 1px 7px black;
 }
 
 .titel_notes{
@@ -24,8 +25,9 @@ p{
 }
 
 .trash_content{
-    background-color: rgba(254, 0, 0, 0.315);
-    color: rgb(0, 0, 0);
+    background-color: #8094c6;
+    box-shadow: 0px 2px 15px rgb(0, 0, 0);
+    color: rgb(36, 36, 36);
     margin-top: 24px;
     padding-left: 64px;
     padding-right: 64px;
